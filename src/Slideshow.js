@@ -1,3 +1,4 @@
+import Image41 from './Image/41.jpg'
 function Slideshow() {
     return (
         <div className="Slideshow">
@@ -9,31 +10,31 @@ function Slideshow() {
                     <div className="slideshow">
                         <div className="slides">
                             <div className="slide active">
-                                <img src="media/41.jpg" alt="My beautiful table." />
+                                <img src={Image41} alt="My beautiful table." />
                                 <div>
                                     <p><a href="https://www.toyota.com/">Toyota</a></p>
                                 </div>
                             </div>
                             <div className="slide">
-                                <img src="media/51.jpg" alt="My beautiful nature." />
+                                <img src="Image/51.jpg" alt="My beautiful nature." />
                                 <div>
                                     <p><a href="https://www.porsche.com/">Porsche</a></p>
                                 </div>
                             </div>
                             <div className="slide">
-                                <img src="media/24.jpg" alt="My beautiful eagle." />
+                                <img src="Image/24.jpg" alt="My beautiful eagle." />
                                 <div>
                                     <p><a href="https://www.mercedes-benz.com/">Mersedes benz</a></p>
                                 </div>
                             </div>
                             <div className="slide">
-                                <img src="media/233.jpg" alt="My beautiful dog." />
+                                <img src="Image/233.jpg" alt="My beautiful dog." />
                                 <div>
                                     <p><a href="https://www.bmw.com/">Bmw</a></p>
                                 </div>
                             </div>
                             <div className="slide">
-                                <img src="media/300.jpg" alt="My beautiful cat." />
+                                <img src="Image/300.jpg" alt="My beautiful cat." />
                                 <div>
                                     <p><a href="https://www.ferrari.com/">Ferarri</a></p>
                                 </div>
