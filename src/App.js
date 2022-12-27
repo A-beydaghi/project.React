@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import Article from './Article'
+import Slideshow from './Slideshow'
+import Calculator from './Calculator'
+import Todolist from './Todolist'
+import Validation from './Validation'
+import Home from './Home'
+import './style.css'
+import './bootstrap.min.css'
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path = "/" element = {<Article />} />
+        <Route path = "/Slideshow" element = {<Slideshow />} />
+        <Route path = "/Todolist" element = {<Todolist />} />
+        <Route path = "/Calculator" element = {<Calculator />} />
+        <Route path = "/Validation" element = {<Validation />} />
+        <Route path = "/Home" element = {<Home />} />
+      </Routes>
     </div>
   );
 }
