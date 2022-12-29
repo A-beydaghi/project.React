@@ -1,4 +1,11 @@
+
+import './Slide.css'
 import Image41 from './Image/41.jpg'
+import Image51 from './Image/51.jpg'
+import Image24 from './Image/24.jpg'
+import Image233 from './Image/233.jpg'
+import Image300 from './Image/300.jpg'
+
 function Slideshow() {
     return (
         <div className="Slideshow">
@@ -16,25 +23,25 @@ function Slideshow() {
                                 </div>
                             </div>
                             <div className="slide">
-                                <img src="Image/51.jpg" alt="My beautiful nature." />
+                                <img src={Image51} alt="My beautiful nature." />
                                 <div>
                                     <p><a href="https://www.porsche.com/">Porsche</a></p>
                                 </div>
                             </div>
                             <div className="slide">
-                                <img src="Image/24.jpg" alt="My beautiful eagle." />
+                                <img src={Image24} alt="My beautiful eagle." />
                                 <div>
                                     <p><a href="https://www.mercedes-benz.com/">Mersedes benz</a></p>
                                 </div>
                             </div>
                             <div className="slide">
-                                <img src="Image/233.jpg" alt="My beautiful dog." />
+                                <img src={Image233} alt="My beautiful dog." />
                                 <div>
                                     <p><a href="https://www.bmw.com/">Bmw</a></p>
                                 </div>
                             </div>
                             <div className="slide">
-                                <img src="Image/300.jpg" alt="My beautiful cat." />
+                                <img src={Image300} alt="My beautiful cat." />
                                 <div>
                                     <p><a href="https://www.ferrari.com/">Ferarri</a></p>
                                 </div>

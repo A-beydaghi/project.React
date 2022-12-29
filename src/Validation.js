@@ -24,7 +24,7 @@ function Validation() {
                                     <label for="Password">Password:</label>
                                     <input type="password" name="password" id="Password" className="form-control" placeholder="Password" />
                                 </div>
-                                <input type="submit" name="submit" value="Submit" className="btn btn-primary" />
+                                <input type="submit" name="submit" value="Submit" class="btn btn-primary" />
                             </form>
                             <hr />
                             <h6>
@@ -38,5 +38,4 @@ function Validation() {
         </div >
     );
 }
-
 export default Validation;

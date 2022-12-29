@@ -1,4 +1,4 @@
-import './cal.css'
+import './Calcu.css';
 function Calculator() {
     return (
         <div className="Calculator">
@@ -36,5 +36,4 @@ function Calculator() {
         </div>
     );
 }
-
 export default Calculator;

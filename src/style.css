@@ -8,7 +8,8 @@ ul {
     justify-content: right;
 }
 
-ul,li {
+ul,
+li {
     margin: auto;
     margin-top: 20px;
     padding-right: 50px;
