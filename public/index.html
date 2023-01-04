@@ -1,25 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href=https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css
-          integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
-          crossorigin="anonymous">
-    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href=https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css
+    integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
@@ -28,12 +25,13 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
+  <title>React App</title>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+  <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
 
@@ -43,16 +41,256 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
-    crossorigin="anonymous"></script>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" 
-    integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" 
-    crossorigin="anonymous"></script>
-    
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" 
-    integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" 
-    crossorigin="anonymous"></script>
-  </body>
+  <script type="text/javascript">
+    function clac() {
+      let result = "";
+
+      let button = document.getElementsByClassName("button");
+
+      for (let i = 0; i < button.length; i++) {
+        button[i].addEventListener('click', function () {
+          result = result + this.id;
+          document.getElementById('result').innerText = result;
+        });
+      }
+      let operator = document.getElementsByClassName("operator")
+      for (let i = 0; i < operator.length; i++) {
+        operator[i].addEventListener("click", function () {
+          if (this.id == "clearall") {
+            document.getElementById('result').innerText = ""
+            result = ""
+          }
+          else if (this.id == "backspace") {
+            result = result.substr(0, result.length - 1)
+            document.getElementById('result').innerText = result;
+          }
+          else if (this.id == "sign") {
+            if (result[0] != "-") {
+              result = "-" + result;
+              document.getElementById('result').innerText = result;
+            }
+          }
+          else if (result[0] == "-") {
+            result = result.substr(1, result.length);
+            document.getElementById('result').innerText = result;
+          }
+          else if (this.id == "=") {
+
+            document.getElementById('result').innerText = eval(result);
+            result = ""
+          }
+        });
+      }
+    }
+    function slide() {
+      function classSwitcher() {
+        slides.forEach(slide => slide.classList.remove("active"))
+        points.forEach(point => point.classList.remove("active"))
+        slides[active].classList.add("active")
+        points[active].classList.add("active")
+      }
+
+      let goNext = () => {
+        active = (active == slides.length - 1) ? 0 : active + 1
+        classSwitcher()
+      }
+
+      let goPrev = () => {
+        active = (active == 0) ? slides.length - 1 : active - 1
+        classSwitcher()
+      }
+
+      //variables
+      let active = 0
+      let timer = 1000
+
+      let slideshow = document.querySelector(".slideshow")
+      let slides = document.querySelectorAll(".slide")
+      let points = document.querySelectorAll(".points > span")
+      let prev = document.querySelector(".prev")
+      let next = document.querySelector(".next")
+
+      // setInterval
+      let runSlideshow = setInterval(goNext, timer)
+
+      // point event
+      points.forEach((point, index) => {
+        point.addEventListener("click", e => {
+          active = index
+          classSwitcher()
+        })
+      })
+
+      // next event
+      next.addEventListener("click", e => goNext())
+
+      // prev event
+      prev.addEventListener("click", e => goPrev())
+
+      // mouseover
+      slideshow.addEventListener("mouseover", e => clearInterval(runSlideshow))
+
+      // mouseleave
+      slideshow.addEventListener("mouseleave", e => runSlideshow = setInterval(goNext, timer))
+    }
+    function valid() {
+      let form = document.querySelector(".form")
+      let username = document.querySelector("#username")
+      let password = document.querySelector("#password")
+      let showPassword = document.querySelector("#show-password")
+
+
+      let userPatter = /^[a-zA-Z][\w._]{5,23}$/
+      //for passeord
+      let ep = 0
+
+      form.addEventListener("submit", e => {
+        e.preventDefault()
+      })
+
+      form.username.addEventListener("keyup", e => {
+        if (e.target.value) {
+          username.textContent = e.target.value
+          if (userPatter.test(e.target.value)) {
+            e.target.classList.add("is-valid")
+            e.target.classList.remove("is-invalid")
+          } else {
+            e.target.classList.add("is-invalid")
+          }
+        } else {
+          username.innerHTML = `<i>Please write something</i>`
+        }
+      })
+      ////////////////////////
+      // form.password.addEventListener("mouseover", e =>{
+      // 	alert("Your password for example: (Aa123@)") 
+      // })
+      //////////////////////
+      form.password.addEventListener("keyup", e => {
+        if (e.target.value) {
+          password.textContent = "*".repeat(e.target.value.length)
+          showPassword.textContent = e.target.value
+          ep = 0
+          ep += /[0-9]/.test(e.target.value) ? 1 : 0
+          ep += /[\W]/.test(e.target.value) ? 1 : 0
+          ep += /[A-Z]/.test(e.target.value) ? 1 : 0
+          ep += /[a-z]/.test(e.target.value) ? 1 : 0
+          ep += e.target.value.length >= 6 ? 1 : 0
+          if (ep === 5) {
+            e.target.classList.add("is-valid")
+            e.target.classList.remove("is-invalid")
+          } else {
+            e.target.classList.add("is-invalid")
+          }
+        } else {
+          password.innerHTML = `<i>Please select a password</i>`
+          showPassword.innerHTML = `<i>Please select a password</i>`
+        }
+      })
+    }
+    function todo() {
+      let todos = localStorage.getItem("todos")
+
+      // try parse data or null
+      try {
+        todos = JSON.parse(todos)
+        todos = todos.length ? todos : null
+      } catch (e) {
+        todos = null
+      }
+
+      // set default value if todos == null
+      if (!todos) {
+        todos = [
+          { content: "lerning js", status: true },
+          { content: "Watch videos", status: false },
+          { content: "be strong", status: true },
+        ]
+        localStorage.setItem("todos", JSON.stringify(todos))
+      }
+
+      function createTodo(todos) {
+        let todosList = document.querySelector("#todos-list")
+        todosList.innerHTML = ""
+
+        todos.forEach((todo, index) => {
+          let li = document.createElement("li")
+          li.className = "list-group-item"
+          let content = document.createElement("span")
+          content.textContent = todo.content
+          content.style.textDecoration = todo.status ? 'initial' : 'line-through'
+          let deleteBtn = document.createElement("img")
+          deleteBtn.src = "./media/icon_trash.png";
+          deleteBtn.className = "float-right";
+          li.append(content)
+          li.append(deleteBtn)
+          todosList.append(li)
+
+
+          deleteBtn.addEventListener("click", e => {
+            todos.splice(index, 1)
+            localStorage.setItem("todos", JSON.stringify(todos))
+            createTodo(todos)
+          })
+          content.addEventListener("click", e => {
+            todos[index].status = !todos[index].status
+            localStorage.setItem("todos", JSON.stringify(todos))
+            createTodo(todos)
+          })
+        });
+      }
+      createTodo(todos)
+
+
+      let clicks = document.querySelector('#clicks')
+      let forms = document.querySelector('#forms')
+
+
+      Array.from(clicks.children).forEach(action => {
+        if (action.dataset.action == "add") {
+          action.addEventListener("click", e => {
+            forms.innerHTML = `
+				<form id="add">
+					<input class="form-control" name="add" placeholder="Add todo ..">
+				</form>
+			`
+            createTodo(todos)
+            let add = document.querySelector('#add')
+            add.addEventListener("submit", e => {
+              e.preventDefault()
+              if (add.add.value) {
+                todos.push({ content: add.add.value, status: true })
+                localStorage.setItem("todos", JSON.stringify(todos))
+                createTodo(todos)
+              }
+            })
+          })
+        } else if (action.dataset.action == "search") {
+          action.addEventListener("click", e => {
+            forms.innerHTML = `
+				<form id="search">
+					<input class="form-control" name="search" placeholder="Search todos ..">
+				</form>
+			`
+            let search = document.querySelector("#search")
+            search.addEventListener("keyup", e => {
+              e.preventDefault()
+              if (search.search.value) {
+                let filterd_todos = todos.filter(
+                  todo => todo.content.toLowerCase().includes(search.search.value.toLowerCase())
+                )
+                createTodo(filterd_todos)
+              } else {
+                createTodo(todos)
+              }
+            })
+          })
+        }
+      })
+
+
+    }
+  </script>
+</body>
+
 </html>

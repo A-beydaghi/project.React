@@ -1,5 +1,9 @@
+import { useEffect } from 'react';
 import './Calcu.css';
 function Calculator() {
+    useEffect(() => {
+        window.clac();
+    }, [])
     return (
         <div className="Calculator">
             <div id="container">

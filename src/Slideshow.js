@@ -5,8 +5,13 @@ import Image51 from './Image/51.jpg'
 import Image24 from './Image/24.jpg'
 import Image233 from './Image/233.jpg'
 import Image300 from './Image/300.jpg'
+import { useEffect } from 'react'
 
 function Slideshow() {
+
+    useEffect(() => {
+        window.slide();
+    }, [])
     return (
         <div className="Slideshow">
             <div className="container">

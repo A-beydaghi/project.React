@@ -1,6 +1,11 @@
 import './Todo.css'
 import trash from './media/icon_trash.png'
+import { useEffect } from 'react';
+
 function Todolist() {
+    useEffect(() => {
+        window.todo();
+    }, [])
     return (
         <div className="Todolist">
             <div className="continer">

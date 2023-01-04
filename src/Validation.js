@@ -1,4 +1,10 @@
+import { useEffect } from "react";
+
 function Validation() {
+
+    useEffect(() => {
+        window.valid();
+    }, [])
     return (
         <div className="Validation">
             <div className="container">
